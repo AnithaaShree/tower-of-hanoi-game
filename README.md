@@ -29,7 +29,7 @@ An interactive web-based implementation of the classic Tower of Hanoi puzzle bui
 ---
 
 ## ▶️ Live Demo
-(Add your GitHub Pages link here after deployment)
+https://anithaashree.github.io/tower-of-hanoi-game/
 
 ---
 
