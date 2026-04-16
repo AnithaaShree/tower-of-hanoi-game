@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Tower of Hanoi</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="dark-mode">
+    <div class="glass-container">
+        <header>
+            <h1>Tower of Hanoi</h1>
+            <div class="controls-top">
+                <button id="themeToggle" title="Toggle Light/Dark Mode">☀️</button>
+            </div>
+        </header>
+
+        <div class="game-dashboard">
+            <div class="stat-box">
+                <span class="label">Disks</span>
+                <input type="range" id="diskSelector" min="3" max="8" value="3">
+                <span id="diskCountDisplay" class="value">3</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Moves</span>
+                <span id="moveCount" class="value">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Target</span>
+                <span id="minMoves" class="value">7</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Time</span>
+                <span id="timerDisplay" class="value">00:00</span>
+            </div>
+        </div>
+
+        <div class="progress-wrapper">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="controls-menu">
+            <button id="btnNewGame" class="btn primary">New Game</button>
+            <button id="btnRestart" class="btn">Restart</button>
+            <button id="btnPause" class="btn">Pause</button>
+            <button id="btnHint" class="btn suggestion">Hint</button>
+            <button id="btnAutoSolve" class="btn magic">Auto Solve</button>
+        </div>
+
+        <div class="game-arena" id="gameArena">
+            <!-- Rods injected by JS array mapping -->
+            <div class="rod-container" data-rod="0" id="rod-0">
+                <div class="rod-beam"></div>
+                <div class="rod-base">A</div>
+                <div class="disk-stack" id="stack-0"></div>
+            </div>
+            <div class="rod-container" data-rod="1" id="rod-1">
+                <div class="rod-beam"></div>
+                <div class="rod-base">B</div>
+                <div class="disk-stack" id="stack-1"></div>
+            </div>
+            <div class="rod-container" data-rod="2" id="rod-2">
+                <div class="rod-beam"></div>
+                <div class="rod-base">C</div>
+                <div class="disk-stack" id="stack-2"></div>
+            </div>
+        </div>
+
+        <div class="best-score-panel">
+            Best Score (Moves): <span id="bestScoreDisplay">--</span>
+        </div>
+    </div>
+
+    <!-- Win Modal -->
+    <div class="modal hidden" id="winModal">
+        <div class="modal-content glass-panel">
+            <h2>Sequence Complete!</h2>
+            <div class="stars" id="starRating">⭐⭐⭐</div>
+            <div class="stats">
+                <p>Moves: <span id="winMoves">0</span> / <span id="winMinMoves">0</span></p>
+                <p>Time Taken: <span id="winTime">00:00</span></p>
+                <div id="newBestBadge" class="badge new-best hidden">New Best Score!</div>
+            </div>
+            <div class="modal-actions">
+                <button id="btnPlayAgain" class="btn primary">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pause Overlay -->
+    <div class="modal hidden" id="pauseModal">
+        <div class="modal-content glass-panel">
+            <h2>System Paused</h2>
+            <button id="btnResume" class="btn primary">Resume</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
